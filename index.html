@@ -2,6 +2,12 @@
 <head>
  <title><h1>火山と地震の発生地点の比較</h1></title>
  <div><h1>火山と地震の発生地点の比較</h1></div>
+ <style>
+    img {
+      width: auto;
+      height: auto;
+    }
+  </style>
 </head>
 <body>
 
@@ -9,6 +15,26 @@
 <div>火山や地震は自然災害として大きな影響を与える。</div>
 <div>火山と地震の発生地点を比較することで、</div>
 <div>それらがどのような場所で多く発生しているのかを明らかにする。</div>
+
+<img id="myImage" src="earthquake.png">
+
+<br><br>
+
+<button onclick="changeImage()">画像を切り替える</button>
+
+<script>
+  let toggle = true;
+
+  function changeImage() {
+    const image = document.getElementById("myImage");
+    if (toggle) {
+      image.src = "volucano.png";
+    } else {
+      image.src = "earthquake.png";
+    }
+    toggle = !toggle;
+  }
+</script>
 
 </body>
 </html>
