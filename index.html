@@ -1,38 +1,56 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="UTF-8">
+  <title>キラキラカーソル</title>
   <style>
     body {
-      cursor: none; /* 通常のカーソルを非表示にする */
+      margin: 0;
+      cursor: none; /* 通常カーソルを非表示 */
+      overflow: hidden;
     }
 
-    #customCursor {
+    .sparkle {
       position: fixed;
-      width: 15px;
-      height: 15px;
-      background-color: red;
+      width: 8px;
+      height: 8px;
+      background: radial-gradient(circle, white, transparent);
       border-radius: 50%;
       pointer-events: none;
-      transform: translate(-50%, -50%);
-      transition: transform 0.1s ease;
+      animation: fadeOut 0.5s forwards;
       z-index: 9999;
+    }
+
+    @keyframes fadeOut {
+      0% {
+        opacity: 1;
+        transform: scale(1);
+      }
+      100% {
+        opacity: 0;
+        transform: scale(2);
+      }
     }
   </style>
 </head>
 <body>
 
-<div id="customCursor"></div>
-
-<h2>動くおしゃれカーソル</h2>
-<p>マウスの動きに合わせて、赤い丸がカーソルとして動きます。</p>
-
 <script>
-  const cursor = document.getElementById('customCursor');
-  document.addEventListener('mousemove', (e) => {
-    cursor.style.left = e.clientX + 'px';
-    cursor.style.top = e.clientY + 'px';
+  document.addEventListener("mousemove", (e) => {
+    const sparkle = document.createElement("div");
+    sparkle.classList.add("sparkle");
+    sparkle.style.left = `${e.clientX}px`;
+    sparkle.style.top = `${e.clientY}px`;
+    document.body.appendChild(sparkle);
+
+    // 一定時間後に削除
+    setTimeout(() => {
+      sparkle.remove();
+    }, 500);
   });
 </script>
+
+<h2 style="color:white; text-align:center; margin-top:100px;">✨ マウスを動かすとキラキラ ✨</h2>
 
 </body>
 </html>
