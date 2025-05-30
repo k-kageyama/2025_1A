@@ -1,56 +1,13 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="UTF-8">
-  <title>キラキラカーソル</title>
-  <style>
-    body {
-      margin: 0;
-      cursor: none; /* 通常カーソルを非表示 */
-      overflow: hidden;
-    }
+<style>
+  body {
+    margin: 0;
+    background: radial-gradient(circle at center, #ff5722, #bf360c, #000);
+    animation: magma 6s ease infinite alternate;
+    background-size: 200% 200%;
+  }
 
-    .sparkle {
-      position: fixed;
-      width: 8px;
-      height: 8px;
-      background: radial-gradient(circle, rgb(164, 18, 18), transparent);
-      border-radius: 50%;
-      pointer-events: none;
-      animation: fadeOut 0.5s forwards;
-      z-index: 9999;
-    }
-
-    @keyframes fadeOut {
-      0% {
-        opacity: 1;
-        transform: scale(1);
-      }
-      100% {
-        opacity: 0;
-        transform: scale(2);
-      }
-    }
-  </style>
-</head>
-<body>
-
-<script>
-  document.addEventListener("mousemove", (e) => {
-    const sparkle = document.createElement("div");
-    sparkle.classList.add("sparkle");
-    sparkle.style.left = `${e.clientX}px`;
-    sparkle.style.top = `${e.clientY}px`;
-    document.body.appendChild(sparkle);
-
-    // 一定時間後に削除
-    setTimeout(() => {
-      sparkle.remove();
-    }, 500);
-  });
-</script>
-
-<h2 style="color:rgb(0, 0, 0); text-align:center; margin-top:100px;">✨ マウスを動かすとキラキラ ✨</h2>
-
-</body>
-</html>
+  @keyframes magma {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
+  }
+</style>
