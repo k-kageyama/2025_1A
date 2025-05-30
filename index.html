@@ -17,19 +17,21 @@
 <div>それらがどのような場所で多く発生しているのかを明らかにする。</div>
 
 <br><br>
-<button onclick="changeImage()">画像を切り替える</button>
+<button onclick="changeImage()">火山の画像に切り替える</button>
 <br><br>
-<img id="myImage" src="earthquake.png">
+<img id="Image" src="earthquake.png">
 
 <script>
   let toggle = true;
 
   function changeImage() {
-    const image = document.getElementById("myImage");
+    const image = document.getElementById("Image");
     if (toggle) {
       image.src = "volucano.png";
+      button.textContent = "地震の分布の画像を表示する";
     } else {
       image.src = "earthquake.png";
+      button.textContent = "火山の分布の画像を表示する";
     }
     toggle = !toggle;
   }
