@@ -17,7 +17,7 @@
 <div>それらがどのような場所で多く発生しているのかを明らかにする。</div>
 
 <br><br>
-<button onclick="changeImage()">火山の画像に切り替える</button>
+<button id="toggleButton" onclick="changeImage()">火山の画像に切り替える</button>
 <br><br>
 <img id="Image" src="earthquake.png">
 
@@ -26,6 +26,8 @@
 
   function changeImage() {
     const image = document.getElementById("Image");
+    const button = document.getElementById("toggleButton");
+
     if (toggle) {
       image.src = "volucano.png";
       button.textContent = "地震の分布の画像を表示する";
